@@ -29,8 +29,8 @@ namespace ClassAssignment
                 {
                     cus.ChangeMeal(cus.FirstName, cus.LastName, ((Meals)i));
                 }
-                Console.WriteLine();
             }
+            Console.WriteLine("Everyone is full!");
             Console.ReadLine();
               
         }
@@ -38,25 +38,35 @@ namespace ClassAssignment
         private static Queue<Customer> CreateCustomerData()
         {
             Queue<Customer> customer = new Queue<Customer>();
-            Customer c = new Customer();
-            c.FirstName = "Joe";
-            c.LastName = "Smith";
-            customer.Enqueue(c);
+            Customer cust = new Customer();
+            cust.FirstName = "Joe";
+            cust.LastName = "Smith";
+            customer.Enqueue(cust);
 
-            c = new Customer();
-            c.FirstName = "Jane";
-            c.LastName = "Jones";
-            customer.Enqueue(c);
+            cust = new Customer();
+            cust.FirstName = "Jane";
+            cust.LastName = "Jones";
+            customer.Enqueue(cust);
 
-            c = new Customer();
-            c.FirstName = "Jack";
-            c.LastName = "Jump";
-            customer.Enqueue(c);
-            c = new Customer();
+            cust = new Customer();
+            cust.FirstName = "Jack";
+            cust.LastName = "Jump";
+            customer.Enqueue(cust);
+           
+            cust = new Customer();
+            cust.FirstName = "Jeff";
+            cust.LastName = "Run";
+            customer.Enqueue(cust);
 
-            c.FirstName = "Jeff";
-            c.LastName = "Run";
-            customer.Enqueue(c);
+            cust = new Customer();
+            cust.FirstName = "Jill";
+            cust.LastName = "Hill";
+            customer.Enqueue(cust);
+
+            cust = new Customer();
+            cust.FirstName = "John";
+            cust.LastName = "Winstone";
+            customer.Enqueue(cust);
 
             return customer;
         }
