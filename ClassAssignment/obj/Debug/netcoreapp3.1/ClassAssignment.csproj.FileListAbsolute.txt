@@ -1,0 +1,11 @@
+C:\Users\payal\source\repos\ClassAssignment\ClassAssignment\bin\Debug\netcoreapp3.1\ClassAssignment.exe
+C:\Users\payal\source\repos\ClassAssignment\ClassAssignment\bin\Debug\netcoreapp3.1\ClassAssignment.deps.json
+C:\Users\payal\source\repos\ClassAssignment\ClassAssignment\bin\Debug\netcoreapp3.1\ClassAssignment.runtimeconfig.json
+C:\Users\payal\source\repos\ClassAssignment\ClassAssignment\bin\Debug\netcoreapp3.1\ClassAssignment.runtimeconfig.dev.json
+C:\Users\payal\source\repos\ClassAssignment\ClassAssignment\bin\Debug\netcoreapp3.1\ClassAssignment.dll
+C:\Users\payal\source\repos\ClassAssignment\ClassAssignment\bin\Debug\netcoreapp3.1\ClassAssignment.pdb
+C:\Users\payal\source\repos\ClassAssignment\ClassAssignment\obj\Debug\netcoreapp3.1\ClassAssignment.csprojAssemblyReference.cache
+C:\Users\payal\source\repos\ClassAssignment\ClassAssignment\obj\Debug\netcoreapp3.1\ClassAssignment.AssemblyInfoInputs.cache
+C:\Users\payal\source\repos\ClassAssignment\ClassAssignment\obj\Debug\netcoreapp3.1\ClassAssignment.AssemblyInfo.cs
+C:\Users\payal\source\repos\ClassAssignment\ClassAssignment\obj\Debug\netcoreapp3.1\ClassAssignment.dll
+C:\Users\payal\source\repos\ClassAssignment\ClassAssignment\obj\Debug\netcoreapp3.1\ClassAssignment.pdb
