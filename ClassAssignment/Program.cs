@@ -18,17 +18,20 @@ namespace ClassAssignment
         static void Main(string[] args)
         {
             Queue<Customer> customer = CreateCustomerData();
-
+            var table = new Table();
+            var cusMeal = new ChangeMealOfPerson();
             foreach (Customer cus in customer)
             {
-                cus.TableOpenEvent += cus.Handletable;
-                cus.ChangeMealEvent += cus.HandleChangeMeal;
-                cus.TableOpen(cus.FirstName, cus.LastName);
+                table.TableOpenEvent += cus.Handletable;
+                cusMeal.ChangeMealEvent += cus.HandleChangeMeal;
+                table.TableOpen(cus.FirstName, cus.LastName);
                 int mealCount = Enum.GetNames(typeof(Meals)).Length;
                 for (int i = 1; i < mealCount; i++)
                 {
-                    cus.ChangeMeal(cus.FirstName, cus.LastName, ((Meals)i));
+                    cusMeal.ChangeMeal(cus.FirstName, cus.LastName, ((Meals)i));
                 }
+                table.TableOpenEvent -= cus.Handletable;
+                cusMeal.ChangeMealEvent -= cus.HandleChangeMeal;
             }
             Console.WriteLine("Everyone is full!");
             Console.ReadLine();
@@ -76,41 +79,47 @@ namespace ClassAssignment
             public string FirstName { get; set; }
             public string LastName { get; set; }
             public Meals Meal { get; set; }
-
-            public event ChangeMealEventHandeler ChangeMealEvent;
-            public event TableOpenEventHandeler TableOpenEvent;
           
             public void HandleChangeMeal(object sender, ChangeMealEventArgs e)
             {
                 Console.WriteLine($"{e.FirstName} {e.LastName} is having {e.Meal}");
             }
            
-            public void ChangeMeal(string fname, string lname, Meals m)
-            {
-                ChangeMealEventHandeler change = ChangeMealEvent;
-                if (change != null)
-                {
-                    change(this, new ChangeMealEventArgs(fname, lname, m));
-                }
-            }
-
             public void Handletable(object sender, TableOpenEventArgs e)
             {
                 Console.WriteLine("Table is open!");
                 Console.WriteLine($"{e.FirstName} {e.LastName} got table.");
             }
 
+            
+        }
+        public class ChangeMealOfPerson
+        {
+            public event EventHandler<ChangeMealEventArgs> ChangeMealEvent;
+            public void ChangeMeal(string fname, string lname, Meals m)
+            {
+                //ChangeMealEventHandeler change = ChangeMealEvent;
+                if (ChangeMealEvent != null)
+                {
+                    ChangeMealEvent(this, new ChangeMealEventArgs(fname, lname, m));
+                }
+            }
+
+        }
+        public class Table
+        {
+            public event EventHandler<TableOpenEventArgs>  TableOpenEvent;
             public void TableOpen(string fname, string lname)
             {
-                TableOpenEventHandeler table = TableOpenEvent;
-                if (table != null)
+               // TableOpenEventHandeler table = TableOpenEvent;
+                if (TableOpenEvent != null)
                 {
-                    table(this, new TableOpenEventArgs(fname, lname));
+                    TableOpenEvent(this, new TableOpenEventArgs(fname, lname));
                 }
             }
         }
 
-        public delegate void TableOpenEventHandeler(object source, TableOpenEventArgs e);
+       //public delegate void TableOpenEventHandeler(object source, TableOpenEventArgs e);
 
         public class TableOpenEventArgs : EventArgs
         {
@@ -123,7 +132,7 @@ namespace ClassAssignment
             }
         }
 
-        public delegate void ChangeMealEventHandeler(object source, ChangeMealEventArgs e);
+       // public delegate void ChangeMealEventHandeler(object source, ChangeMealEventArgs e);
 
         public class ChangeMealEventArgs : EventArgs
         {
